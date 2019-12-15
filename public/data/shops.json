@@ -1,5 +1,6 @@
 { "shops": [
     { "location": "Portland", "address": "123 Portland Av"},
     { "location": "Astoria", "address": "456 Astoria St"},
-    { "location": "", "adress": ""
+    { "location": "", "address": "" }
+    ]
 }

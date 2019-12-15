@@ -21,9 +21,9 @@ describe('ServiceLocator', function(){
         expect(headers.length).toBe(1);
     });
 
-    it('Should render 3 buttons', function(){
+    it('Should render 0 buttons', function(){
         let buttons = mountedStoreLocator.find('Button');
-        expect(buttons.length).toBe(3);
+        expect(buttons.length).toBe(0);
     });
 
     it('Should render a map', function(){
@@ -50,18 +50,18 @@ describe('ServiceLocator', function(){
     it('Calls axios.get from componentDidMount with corret url', function(){
 
         return mountedStoreLocator.instance().componentDidMount().then(function(){
-            expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/data/shops.json');
+            expect(axios.get).toHaveBeenCalledWith('http://localhost:3001/data/shops.json');
         });
 
-    });
+    }); 
 
     it('update the state with api data', function(){
         return mountedStoreLocator.instance().componentDidMount().then(function(){
             expect(mountedStoreLocator.state()).toHaveProperty('shops', 
                 [
-                    { location: 'Portland', adress: '123 Portland Av'},
-                    { location: 'Astoria', adress: '456 Astoria St'},
-                    { location: '', adress: ''}
+                    { location: 'Portland', address: '123 Portland Av'},
+                    { location: 'Astoria', address: '456 Astoria St'},
+                    { location: '', address: ''}
                 ]            
             );
         });
