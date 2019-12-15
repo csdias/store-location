@@ -1,6 +1,8 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import StoreLocator from '../StoreLocator';
+import axios from 'axios';
+import renderer from 'react-test-renderer';
 
 describe('ServiceLocator', function(){
 
@@ -27,6 +29,42 @@ describe('ServiceLocator', function(){
     it('Should render a map', function(){
         let map = mountedStoreLocator.find('Map');
         expect(map.length).toBe(1);
+
+    });
+
+    it('renders correctly', function(){
+
+        let tree = renderer.create(<StoreLocator />).toJSON();
+        expect(tree).toMatchSnapshot();
+
+    });
+
+    it('Calls axios.get from componentDidMount', function(){
+
+        return mountedStoreLocator.instance().componentDidMount().then(function(){
+            expect(axios.get).toHaveBeenCalled();
+        });
+
+    })
+
+    it('Calls axios.get from componentDidMount with corret url', function(){
+
+        return mountedStoreLocator.instance().componentDidMount().then(function(){
+            expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/data/shops.json');
+        });
+
+    });
+
+    it('update the state with api data', function(){
+        return mountedStoreLocator.instance().componentDidMount().then(function(){
+            expect(mountedStoreLocator.state()).toHaveProperty('shops', 
+                [
+                    { location: 'Portland', adress: '123 Portland Av'},
+                    { location: 'Astoria', adress: '456 Astoria St'},
+                    { location: '', adress: ''}
+                ]            
+            );
+        });
 
     });
 
