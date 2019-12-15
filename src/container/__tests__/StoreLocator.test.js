@@ -19,9 +19,9 @@ describe('ServiceLocator', function(){
         expect(headers.length).toBe(1);
     });
 
-    it('Should render 2 buttons', function(){
+    it('Should render 3 buttons', function(){
         let buttons = mountedStoreLocator.find('Button');
-        expect(buttons.length).toBe(2);
+        expect(buttons.length).toBe(3);
     });
 
     it('Should render a map', function(){
@@ -29,6 +29,19 @@ describe('ServiceLocator', function(){
         expect(map.length).toBe(1);
 
     });
+
+})
+
+describe('ChooseMap', function(){
+
+    it('Updates the state using the location passed to it', function(){
+
+        let mountedStoreLocator = shallow(<StoreLocator />);
+        let mockEvent = { target: { value: 'testland'} };
+        mountedStoreLocator.instance().chooseMap(mockEvent);
+        expect(mountedStoreLocator.instance().state.currentMap).toBe('testland.png');
+        
+    }) 
 
 })
 

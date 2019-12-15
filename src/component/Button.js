@@ -6,7 +6,7 @@ class Button extends Component {
     render(){
 
         return (
-            <button className="location-button">{this.props.location? this.props.location: "All Locations"}</button>
+            <button onClick={this.props.handleClick} className="location-button" value={this.props.location}>{this.props.location? this.props.location: "All Locations"}</button>
         );
     }
 }

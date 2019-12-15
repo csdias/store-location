@@ -4,9 +4,9 @@ function mapChooser(fileIdentifier){
     //     fileIdentifier = 'default';
     // }
 
-    fileIdentifier = !fileIdentifier == true? 'default': fileIdentifier;
+    fileIdentifier = !fileIdentifier === true? 'none': fileIdentifier;
 
-    return `${fileIdentifier}.jpg`;
+    return `${fileIdentifier}.png`;
 
 }
 
