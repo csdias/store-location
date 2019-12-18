@@ -10,7 +10,6 @@ Array [
       src="images/wired-brain-coffee-logo.png"
     />
   </div>,
-  <div />,
   <div
     className="MapBox"
   >
@@ -32,7 +31,6 @@ Array [
       src="images/wired-brain-coffee-logo.png"
     />
   </div>,
-  <div />,
   <div
     className="MapBox"
   >

@@ -41,10 +41,7 @@ describe('ServiceLocator', function(){
     });
 
     it('Should make a call to axios', () => {
-
-
         
-
     });
 
     it('renders correctly', function(){
