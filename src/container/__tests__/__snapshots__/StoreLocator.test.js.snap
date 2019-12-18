@@ -1,5 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ServiceLocator Should render properly 1`] = `
+Array [
+  <div
+    className="Header"
+  >
+    <img
+      alt="logo"
+      src="images/wired-brain-coffee-logo.png"
+    />
+  </div>,
+  <div />,
+  <div
+    className="MapBox"
+  >
+    <img
+      alt="none.png"
+      src="images/none.png"
+    />
+  </div>,
+]
+`;
+
 exports[`ServiceLocator renders correctly 1`] = `
 Array [
   <div

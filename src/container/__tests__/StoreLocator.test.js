@@ -13,7 +13,7 @@ describe('ServiceLocator', function(){
     });
 
     it('Should render without crash', function(){
-        let mountedStoreLocator = shallow(<StoreLocator />);
+        mountedStoreLocator = shallow(<StoreLocator />);
     }); 
 
     it('Should render a header', function(){
@@ -29,6 +29,21 @@ describe('ServiceLocator', function(){
     it('Should render a map', function(){
         let map = mountedStoreLocator.find('Map');
         expect(map.length).toBe(1);
+
+    });
+
+    //practising
+    it('Should render properly', () => {
+
+        const tree = renderer.create(<StoreLocator />).toJSON();
+        expect(tree).toMatchSnapshot();
+
+    });
+
+    it('Should make a call to axios', () => {
+
+
+        
 
     });
 
