@@ -26,11 +26,11 @@ describe('Map', function(){
 
     })
 
-    // it('Should render the none map selected', function(){
+    it('Should render the none map selected', function(){
 
-    //     const maps = mountedMap.find('img [src="images/none.png"]');
-    //     expect(maps.length).toBe(1);
-    // });
+        const maps = mountedMap.find('img[src="images/none.png"]');
+        expect(maps.length).toBe(1);
+    });
 
 
 })

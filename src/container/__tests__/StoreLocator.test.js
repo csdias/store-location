@@ -65,7 +65,7 @@ describe('ServiceLocator', function(){
     it('Calls axios.get from componentDidMount with corret url', function(){
 
         return mountedStoreLocator.instance().componentDidMount().then(function(){
-            expect(axios.get).toHaveBeenCalledWith('http://localhost:3001/data/shops.json');
+            expect(axios.get).toHaveBeenCalledWith('http://localhost:3000/data/shops.json');
         });
 
     }); 
