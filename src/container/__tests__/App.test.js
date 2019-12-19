@@ -11,10 +11,19 @@ describe('App', function(){
 
   });
 
-  it('Should render ServiceLocator without crashing', function(){
+  it('Should render StoreLocatorClass without crashing', function(){
 
     let mountedApp = shallow(<App />);
-    const locators = mountedApp.find('StoreLocator');
+    const locators = mountedApp.find('StoreLocatorClass');
+
+    expect(locators.length).toBe(1);
+
+  });
+
+  it('Should render StoreLocatorFunction without crashing', function(){
+
+    let mountedApp = shallow(<App />);
+    const locators = mountedApp.find('StoreLocatorFunction');
 
     expect(locators.length).toBe(1);
 

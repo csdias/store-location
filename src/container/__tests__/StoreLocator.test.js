@@ -1,19 +1,45 @@
 import React from 'react';
 import {shallow, mount} from 'enzyme';
-import StoreLocator from '../StoreLocator';
+import { StoreLocatorClass, StoreLocatorFunction } from '../StoreLocator';
 import axios from 'axios';
 import renderer from 'react-test-renderer';
 
-describe('ServiceLocator', function(){
+describe('StoreLocatorFunction', function(){
+
+    let mountedStoreLocatorFunction;
+
+    beforeEach(() => {
+
+        mountedStoreLocatorFunction = shallow(<StoreLocatorFunction />);
+
+    });
+
+    it('Should render StoreLocatorFunction properly', function(){
+
+        mountedStoreLocatorFunction = shallow(<StoreLocatorFunction />);
+    
+    });
+
+    // it('Should call axios.get on useEffect', function(){ 
+
+    //     return mountedStoreLocatorFunction.instance().useEffect().then(function(){
+    //         expect(axios.get).toHaveBeenCalled();
+    //     });
+
+    // });
+
+})
+
+describe('StoreLocatorClass', function(){
 
     let mountedStoreLocator;
 
     beforeEach(() => {
-        mountedStoreLocator = shallow(<StoreLocator />);
+        mountedStoreLocator = shallow(<StoreLocatorClass />);
     });
 
     it('Should render without crash', function(){
-        mountedStoreLocator = shallow(<StoreLocator />);
+        mountedStoreLocator = shallow(<StoreLocatorClass />);
     }); 
 
     it('Should render a header', function(){
@@ -35,7 +61,7 @@ describe('ServiceLocator', function(){
     //practising
     it('Should render properly', () => {
 
-        const tree = renderer.create(<StoreLocator />).toJSON();
+        const tree = renderer.create(<StoreLocatorClass />).toJSON();
         expect(tree).toMatchSnapshot();
 
     });
@@ -46,7 +72,7 @@ describe('ServiceLocator', function(){
 
     it('renders correctly', function(){
 
-        let tree = renderer.create(<StoreLocator />).toJSON();
+        let tree = renderer.create(<StoreLocatorClass />).toJSON();
         expect(tree).toMatchSnapshot();
 
     });
@@ -86,7 +112,7 @@ describe('ChooseMap', function(){
 
     it('Updates the state using the location passed to it', function(){
 
-        let mountedStoreLocator = shallow(<StoreLocator />);
+        let mountedStoreLocator = shallow(<StoreLocatorClass />);
         let mockEvent = { target: { value: 'testland'} };
         mountedStoreLocator.instance().chooseMap(mockEvent);
         expect(mountedStoreLocator.instance().state.currentMap).toBe('testland.png');

@@ -15,7 +15,7 @@ const StoreLocatorFunction = () => {
         async function fetchData(){
             const response =  await axios.get('http://localhost:3000/data/shops.json');
 
-            setState({ shops: response.data.shops });
+            setState({ currentMap: state.currentMap, shops: response.data.shops });
         }
 
         fetchData()
@@ -26,7 +26,8 @@ const StoreLocatorFunction = () => {
 
     const chooseMap = (e) => {
 
-        setState({ currentMap: MapChooser(e.target.value)});
+        setState({ currentMap: MapChooser(e.target.value), shops: state.shops });
+        //setState((previousState) => { currentMap: MapChooser(e.target.value), shops: previousState.shops });
 
     }
 
